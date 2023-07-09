@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {useForm} from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux';
 import { RxCross1 } from 'react-icons/rx';
 import IconBtn from '../../../../common/IconBtn';
+import { updateSubSection } from '../../../../../services/operations/courseDetailsAPI';
+import { createSubSection } from '../../../../../services/operations/courseDetailsAPI';
+import { setCourse } from '../../../../../slices/courseSlice';
+import { toast } from 'react-hot-toast';
+import Upload from '../Upload';
 
 const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=false}) => {
 
@@ -58,7 +63,7 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
         setLoading(false);
     }
 
-    const onSubmit = async() => {
+    const onSubmit = async(data) => {
         if(view)
             return;
         

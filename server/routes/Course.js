@@ -40,6 +40,10 @@ const {
   getAllRating,
 } = require("../controllers/RatingAndReview")
 
+const {
+  updateCourseProgress
+} = require('../controllers/CourseProgress');
+
 // Importing Middlewares
 const { auth, isInstructor, isStudent, isAdmin } = require("../middlerwares/auth")
 
@@ -65,6 +69,8 @@ router.post("/addSubSection", auth, isInstructor, createSubSection)
 router.get("/getAllCourses", getAllCourses)
 // Get Details for a Specific Courses
 router.post("/getCourseDetails", getCourseDetails)
+
+router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress)
 
 // ********************************************************************************************************
 //                                      Category routes (Only by Admin)

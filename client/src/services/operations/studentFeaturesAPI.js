@@ -1,7 +1,8 @@
 import { toast } from "react-hot-toast";
 import { apiConnector } from "../apiConnector";
-import rzpL from '../../assets/Logo/'
+import rzpL from '../../assets/Logo/Logo-Small-Dark.png'
 import { setPaymentLoading } from "../../slices/courseSlice";
+import { resetCart } from "../../slices/cartSlice";
 
 
 const { studentEndpoints } = require("../apis");

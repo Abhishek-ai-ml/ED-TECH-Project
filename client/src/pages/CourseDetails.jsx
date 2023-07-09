@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { buyCourse } from '../services/operations/studentFeaturesAPI'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom';
-import { buyCourse } from '../services/operations/studentFeaturesAPI';
 import Error from './Error';
 import ConfirmationModal from '../components/common/ConfirmationModal';
+import { fetchCourseDetails } from '../services/operations/courseDetailsAPI';
+import GetAvgRating from '../utils/avgRating';
+
 
 const CourseDetails = () => {
     const {user} = useSelector((state) => state.profile);

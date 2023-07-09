@@ -3,6 +3,7 @@ import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux'
 import CourseInformationForm from './CourseInformation/CourseInformationForm';
 import PublishCourse from './PublishCourse';
+import CourseBuilderForm from './CourseBuilder/CourseBuilderForm';
 
 const RenderSteps = () => {
 
@@ -20,18 +21,18 @@ const RenderSteps = () => {
         },
 
         {
-            id:1,
+            id:3,
             title:"Publish"
         },
     ]
   return (
-    <>
-        <div>
+    <div className='flex flex-col gap-y-3'>
+        <div className='flex w-10/12 mx-auto justify-between'>
             {
                 steps.map( (item) => (
                     <>
                         <div>
-                            <div className={`${step === item.id ? "bg-yellow-900 border-yellow-50 text-yellow-50" : "border-richblack-700 bg-richblack-800 text-richblack-300"}`}>
+                            <div className={`${step === item.id ? "bg-yellow-900 border-[1px] border-yellow-50 text-yellow-50" : "border-richblack-700 bg-richblack-800 text-richblack-300"} w-12 h-12 rounded-full flex justify-center items-center`}>
                                 {
                                     step > item.id ? (<FaCheck/>) : (item.id)
                                 }
@@ -42,12 +43,12 @@ const RenderSteps = () => {
             }
         </div>
 
-        <div>
+        <div className='flex w-10/12 mx-auto justify-between'>
             {
                 steps.map( (item) => (
                     <>
                         <div>
-                            <p>{item.title}</p>
+                            <p className='text-richblack-5 text-sm font-normal'>{item.title}</p>
                         </div>
                     </>
                 ))
@@ -57,7 +58,7 @@ const RenderSteps = () => {
         {step === 1 && <CourseInformationForm/>}
         {step === 2 && <CourseBuilderForm/>}
         {step === 3 && <PublishCourse/>} 
-    </>
+    </div>
   )
 }
 

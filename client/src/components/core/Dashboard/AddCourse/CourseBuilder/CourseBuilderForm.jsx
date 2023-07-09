@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import {useForm} from 'react-hook-form'
 import {MdAddCircleOutline} from 'react-icons/md'
 import {useDispatch, useSelector} from 'react-redux'
-import {BiArrowRight} from 'react-icons/bi'
+import { BiRightArrow } from 'react-icons/bi'
 import NestedView from './NestedView'
+import { updateSection } from '../../../../../services/operations/courseDetailsAPI'
+import { createSection } from '../../../../../services/operations/courseDetailsAPI'
+import { setCourse } from '../../../../../slices/courseSlice'
+import { toast } from 'react-hot-toast'
+import { setStep } from '../../../../../slices/courseSlice'
+import { setEditCourse } from '../../../../../slices/courseSlice'
+import IconBtn from '../../../../common/IconBtn'
 
 const CourseBuilderForm = () => {
 
@@ -125,7 +132,7 @@ const CourseBuilderForm = () => {
         <button onClick={goBack}>Back</button>
 
         <IconBtn text={"Next"} onclick={goToNext}>
-          <BiArrowRight/>
+          <BiRightArrow/>
         </IconBtn>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Table, Tbody, Th, Thead, Tr} from 'react-super-responsive-table'
+import {Table, Tbody, Th, Thead, Tr, Td} from 'react-super-responsive-table'
 import { COURSE_STATUS } from '../../../../utils/constants';
 import ConfirmationModal from '../../../common/ConfirmationModal';
 import { deleteCourse, fetchInstructorCourses } from '../../../../services/operations/courseDetailsAPI';

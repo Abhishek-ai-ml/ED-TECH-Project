@@ -100,7 +100,7 @@ const CourseInformationForm = () => {
           const result = await editCourseDetails(formData, token);
           setLoading(false);
           if(result) {
-            setStep(2);
+            dispatch(setStep(2));
             dispatch(setCourse(result));
           }
         }
@@ -124,7 +124,7 @@ const CourseInformationForm = () => {
       setLoading(true);
       const result = await addCourseDetails(formData, token);
       if(result) {
-        setStep(2);
+        dispatch(setStep(2));
         dispatch(setCourse(result));
       }
       setLoading(false);
@@ -136,60 +136,60 @@ const CourseInformationForm = () => {
       className='rounded-md bg-richblack-800 border-richblack-700 p-6 space-y-8'
     >
 
-      <div>
-        <label htmlFor='courseTitle'>Course Title <sup>*</sup></label>
+      <div className='flex flex-col gap-[2px]'>
+        <label htmlFor='courseTitle' className='text-richblack-5 font-normal text-sm'>Course Title <sup className='text-pink-200'>*</sup></label>
 
         <input 
           id='courseTitle'
           placeholder='Enter Course Title'
           {...register("courseTitle", {required:true})}
-          className='w-full'
+          className='w-full bg-richblack-700 p-3 rounded-lg text-richblack-200 font-medium text-base'
         />
         {
           errors.courseTitle && (
-            <span>Course Title is required</span>
+            <span className='text-yellow-50 text-sm'>Course Title is required</span>
           )
         }
       </div>
 
       <div>
-        <label htmlFor='courseShortDesc'>Course Short Description</label>
+        <label htmlFor='courseShortDesc' className='text-richblack-5 font-normal text-sm'>Course Short Description</label>
         <textarea
           id='courseShortDesc'
           placeholder='Enter Description'
           {...register("courseShortDesc", {required:true})}
-          className='w-full min-h-[140px]'
+          className='w-full min-h-[140px] bg-richblack-700 p-3 rounded-lg text-richblack-200 font-medium text-base'
         />
         {
           errors.courseShortDesc && (
-            <span>Course Description is required</span>
+            <span className='text-yellow-50 text-sm'>Course Description is required</span>
           )
         }
       </div>
 
-      <div>
-        <label htmlFor='coursePrice'>Course Price <sup>*</sup></label>
+      <div className='relative'>
+        <label htmlFor='coursePrice' className='text-richblack-5 font-normal text-sm'>Course Price <sup className='text-pink-200'>*</sup></label>
         <input
           id='coursePrice'
           placeholder='Enter Course Price'
           {...register("coursePrice", {required:true, valueAsNumber:true})}
-          className='w-full'
+          className='w-full bg-richblack-700 p-3 rounded-lg text-richblack-200 font-medium text-base'
         />
-        <HiOutlineCurrencyRupee/>
+        <HiOutlineCurrencyRupee className='absolute text-richblack-5 right-2 top-[50%] text-3xl'/>
         {
           errors.coursePrice && (
-            <span>Course Price is required</span>
+            <span className='text-yellow-50 text-sm'>Course Price is required</span>
           )
         }
       </div>
 
       <div>
-        <label htmlFor='courseCategory'>Course Category</label>
+        <label htmlFor='courseCategory' className='text-richblack-5 font-normal text-sm'>Course Category <sup className='text-pink-200'>*</sup></label>
         <select
         id='courseCategory'
         defaultValue=""
         {...register("courseCategory", {required:true})}
-
+        className='w-full bg-richblack-700 p-3 rounded-lg text-richblack-200 font-medium text-base'
         >
           <option value="" disabled>Choose a Category</option>
 
@@ -204,22 +204,22 @@ const CourseInformationForm = () => {
         </select>
         {
           errors.courseCategory && (
-            <span>Course Category is Require</span>
+            <span className='text-yellow-50 text-sm'>Course Category is Require</span>
           )
         }
       </div>  
 
       <div>
-        <label>Course Benefits <sup>*</sup></label>
+        <label className='text-richblack-5 font-normal text-sm'>Course Benefits <sup className='text-pink-200'>*</sup></label>
         <textarea
           id='courseBenefits'
           placeholder='Enter Benefits of course'
           {...register("courseBenefits", {required:true})}
-          className='min-h-[140px] w-full'
+          className='min-h-[140px] w-full bg-richblack-700 p-3 rounded-lg text-richblack-200 font-medium text-base'
         />
         {
           errors.courseBenefits && (
-            <span>Course Benefits are Required</span>
+            <span className='text-yellow-50 text-sm'>Course Benefits are Required</span>
           )
         }
       </div>   

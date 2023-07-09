@@ -7,6 +7,9 @@ import {BiDownArrow} from 'react-icons/bi'
 import {AiOutlinePlus} from 'react-icons/ai'
 import SubSectionModal from './SubSectionModal'
 import ConfirmationModal from '../../../../common/ConfirmationModal'
+import { deleteSection } from '../../../../../services/operations/courseDetailsAPI'
+import { deleteSubSection } from '../../../../../services/operations/courseDetailsAPI'
+import { setCourse } from '../../../../../slices/courseSlice'
 
 
 const NestedView = ({handleChangeEditSectionName}) => {
