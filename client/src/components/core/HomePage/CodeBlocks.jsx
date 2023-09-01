@@ -6,10 +6,10 @@ import { TypeAnimation } from 'react-type-animation';
 
 const CodeBlocks = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backgroundGradient, codeColor}) => {
   return (
-    <div className={`w-full flex ${position} my-20 justify-between gap-32`}>
+    <div className={`w-full flex-col lg:flex ${position} my-20 justify-evenly lg:justify-between gap-32`}>
 
         {/* Section 1 */}
-        <div className='w-[50%] flex flex-col gap-8'>
+        <div className='w-full lg:w-[50%] flex flex-col gap-8'>
             {heading}
             <div className='font-bold text-richblack-200'>
                 {subheading}
@@ -30,8 +30,8 @@ const CodeBlocks = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock,
         </div>
 
         {/* Section 2 */}
-        <div className='relative flex h-fit w-[50%] text-[15px] py-4 bg-richblack-800 rounded-xl p-5'>
-            <div className={`absolute top-28 left-[250px] ${position === "lg:flex-row-reverse"? "shadow-[0px_0px_500px_80px_#63b3ed]": "shadow-[0px_0px_300px_100px_#f6e05e]"}  border-none  bg-richblack-800`}></div>
+        <div className='relative lg:mt-0 mt-10 flex h-fit w-full lg:w-[50%] text-[15px] py-4 bg-richblack-800 rounded-xl p-5 font-inter border-[2px] border-richblack-700'>
+            <div className={`absolute top-32 lg:top-28 left-[250px] ${position === "lg:flex-row-reverse"? "shadow-[0px_0px_500px_80px_#63b3ed]": "shadow-[0px_0px_300px_100px_#f6e05e]"}  border-none  bg-richblack-800`}></div>
             <div className='flex flex-col text-richblack-300 font-inter font-bold w-[10%]'>
                 <p>1</p>
                 <p>2</p>

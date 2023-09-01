@@ -23,14 +23,14 @@ const ExploreMore = () => {
     }
   return (
     <div>
-        <div className='text-4xl font-semibold text-center'>
+        <div className=' text-2xl md:text-4xl lg:text-4xl font-semibold text-center w-full'>
             Unlock the
             <HighlightText text ={"Power of Code"}/>
         </div>
 
         <p className='text-center text-richblack-300 text-md mt-3'>Learn to build anything you can imagine</p>
 
-        <div className=' w-fit mx-auto mt-5 flex bg-richblack-800 rounded-full justify-center mb-5 px-1 py-1'>
+        <div className='opacity-0 lg:opacity-100 w-fit mx-auto mt-5 flex bg-richblack-800 rounded-full justify-center mb-5 px-1 py-1'>
             {
                 tabsName.map( (element, index) => {
                     return (
@@ -44,7 +44,7 @@ const ExploreMore = () => {
         </div>
 
         <div className='relative pb-[250px] w-11/12'>
-            <div className='flex gap-12 pt-10 absolute top-0 justify-center mx-auto -left-[30%] w-[1072px]'>
+            <div className='flex flex-wrap md:flex md:flex-wrap lg:flex-nowrap gap-12 pt-10 lg:absolute lg:top-0 items-center justify-center mx-auto lg:-left-[30%] w-1/2 lg:w-[1072px]'>
                 {
                     courses.map( (element, index) => {
                         return (

@@ -14,14 +14,14 @@ const LearninglanguageSection = () => {
                 <HighlightText text={"learning any language"}/>
             </div>
 
-            <div className='text-center text-richblack-600 text-md mx-auto font-bold w-[48%]'>
+            <div className='text-center text-richblack-600 text-md mx-auto font-bold w-full lg:w-[48%]'>
                 Using spin making learning multiple language easy. With 20+ languages realistic voice-over, progress tracking, custom suchedule and more.
             </div>
 
-            <div className='mx-auto flex items-center justify-center mt-5'>
-                <img src={know_your_progress} className='-mr-28'/>
+            <div className='mx-auto flex flex-wrap lg:flex-nowrap items-center justify-center mt-5'>
+                <img src={know_your_progress} className='lg:-mr-28'/>
                 <img src={compare_with_others}/>
-                <img src={plan_your_lessons} className='-ml-36'/>
+                <img src={plan_your_lessons} className='lg:-ml-36'/>
             </div>
 
             <div className='flex items-center mx-auto pb-[100px]'>

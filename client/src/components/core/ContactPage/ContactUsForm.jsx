@@ -39,11 +39,11 @@ const ContactUsForm = () => {
         }
     }, [reset, isSubmitSuccessfull])
   return (
-    <form onSubmit={handleSubmit(submitContactForm)} className='w-[600px] flex flex-col gap-12'>
-        <div className='flex flex-col gap-y-5 pt-10'>
-            <div className='flex gap-5 justify-center w-full'>
+    <form onSubmit={handleSubmit(submitContactForm)} className='w-[80%] md:w-[400px] lg:w-[600px] flex flex-col mx-auto items-center gap-12'>
+        <div className='flex flex-col items-center gap-y-5 pt-10'>
+            <div className='flex flex-wrap lg:flex-nowrap gap-5 justify-center w-full'>
                 {/* First name */}
-                <div className='flex flex-col w-[50%] gap-1'>
+                <div className='flex flex-col w-[80%] lg:w-[50%] gap-1'>
                     <label htmlFor='firstName' className='text-richblack-5 text-sm font-normal'>First Name</label>
                     <input
                         type='text'
@@ -63,7 +63,7 @@ const ContactUsForm = () => {
                 </div>
                 
                 {/* LAst name */}
-                <div className='flex flex-col w-[50%] gap-1'>
+                <div className='flex flex-col w-[80%] lg:w-[50%] gap-1'>
                     <label className='text-richblack-5 text-sm font-normal'>Last Name</label>
                     <input
                         type='text'
@@ -77,7 +77,7 @@ const ContactUsForm = () => {
             </div>
 
             {/* Email */}
-            <div className='flex flex-col w-full gap-1'>
+            <div className='flex flex-col w-[80%] lg:w-full gap-1'>
                 <label className='text-richblack-5 text-sm font-normal'>Email Address</label>
                 <input
                     type='email'
@@ -95,7 +95,7 @@ const ContactUsForm = () => {
             </div>
 
             {/* Phone Number */}
-            <div className='flex flex-col gap-1'>
+            <div className='flex flex-col w-[80%] lg:w-full gap-1'>
                 <label htmlFor='phoneNumber' className='text-richblack-5 text-sm font-normal'>Phone Number</label>
 
                 <div className='flex gap-x-5'>
@@ -139,7 +139,7 @@ const ContactUsForm = () => {
                 }
             </div>
             {/* Message */}
-            <div className='flex flex-col w-full gap-1'>
+            <div className='flex flex-col w-[80%] lg:w-full gap-1'>
                 <label htmlFor='message' className='text-richblack-5 text-sm font-normal'>Message</label>
                 <textarea
                     name='message'
@@ -160,7 +160,7 @@ const ContactUsForm = () => {
             </div>
         </div>
 
-        <button type='submit' className='bg-yellow-50 rounded-lg p-3 text-base text-richblack-900 font-medium w-full'>
+        <button type='submit' className='bg-yellow-50 rounded-lg p-3 text-base text-richblack-900 font-medium w-full md:w-full  lg:w-full'>
                 Send Message
         </button>
     </form>

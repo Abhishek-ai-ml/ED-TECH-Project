@@ -2,11 +2,11 @@ const {instance} = require('../config/razorpay');
 
 const User = require('../models/User');
 const Course = require('../models/Course');
-const {mailSender} = require('../utils/mailSender');
+const mailSender = require('../utils/mailSender');
 const {courseEnrollmentEmail} = require("../mail/templates/courseEnrollmentEmail");
 const mongoose = require('mongoose');
 const CourseProgress = require('../models/CourseProgress');
-
+const crypto = require("crypto")
 
 exports.capturePayment = async(req, res) => {
     const {courses} = req.body;
@@ -128,7 +128,7 @@ const enrollStudents = async(courses, userId, res) => {
             }
 
             const courseProgress = await CourseProgress.create({
-                courseId:courseId,
+                courseID:courseId,
                 userId:userId,
                 completedVideos: [],
             })

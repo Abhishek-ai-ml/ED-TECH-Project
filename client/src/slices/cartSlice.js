@@ -14,6 +14,7 @@ const cartSlice = createSlice({
     reducers:{
         addToCart: (state, action) => {
             const course = action.payload
+            console.log("COURSE IN ADD TO CART SLICE --------", course.price)
             const index = state.cart.findIndex((item) => item._id === course._id)
 
             if(index >= 0) {
@@ -26,7 +27,7 @@ const cartSlice = createSlice({
             //update the total quantity and price
             state.totalItems++
             state.total += course.price
-
+            console.log(state.total)
             //Update to localStorage
             localStorage.setItem("cart", JSON.stringify(state.cart))
             localStorage.setItem("total", JSON.stringify(state.total))
@@ -61,9 +62,9 @@ const cartSlice = createSlice({
             state.totalItems = 0
 
             //Update to local storage
-            localStorage.setItem("cart")
-            localStorage.setItem("total")
-            localStorage.setItem('totalItems')
+            localStorage.removeItem("cart")
+            localStorage.removeItem("total")
+            localStorage.removeItem('totalItems')
         },
     },
 });

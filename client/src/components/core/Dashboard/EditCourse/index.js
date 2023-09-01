@@ -12,6 +12,8 @@ export default function EditCourse(){
     const {token} = useSelector((state) => state.auth)
     const [loading, setLoading] = useState(false)
 
+    console.log("COURSE DATA", course);
+
     useEffect(() => {
         const populateCourseDetails = async() => {
             setLoading(true)
@@ -22,10 +24,12 @@ export default function EditCourse(){
                 dispatch(setCourse(result?.courseDetails))
             }
             setLoading(false)
+            console.log("FULL COURSE DETAILS", result);
         }
         populateCourseDetails();
     }, [])
 
+    
 
   if(loading) {
     return (
@@ -33,9 +37,9 @@ export default function EditCourse(){
     )
   }
   return (
-    <div>
-        <h1>Edit Course</h1>
-        <div>
+    <div className='w-full pt-10 mx-auto flex flex-col'>
+        <h1 className='text-3xl text-richblack-5 font-semibold pb-3 pl-10'>Edit Course</h1>
+        <div className='flex justify-center mx-auto w-[55%]'>
             {
                 course ? (<RenderSteps/>) : (<p>Courses Not Found</p>)
             }

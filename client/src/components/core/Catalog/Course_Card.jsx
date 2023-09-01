@@ -5,30 +5,33 @@ import GetAvgRating from '../../../utils/avgRating';
 
 const Course_Card = ({course, Height}) => {
     const [avgReviewCount, setAvgReviewCount] = useState(0);
-
+    console.log("COURSE IN COURSE CARD ------", course);
     useEffect(() => {
         const count = GetAvgRating(course.ratingAndReviews);
         setAvgReviewCount(count);
     },[course])
+
+    console.log("COURSE IN COURSE CARD", course);
+    console.log("AVG REVIEW COUNT", avgReviewCount);
   return (
-    <div>
+    <div className='w-full'>
         <Link to={`/courses/${course._id}`}>
-            <div>
+            <div className='flex flex-col gap-y-2'>
                 <div>
-                    <img src={course?.thumbnail} className={`${Height}`}/>
+                    <img src={course?.thumbnail} className={`${Height} rounded-xl w-full object-cover`}/>
                 </div>
 
-                <div>
-                    <p>{course?.courseName}</p>
-                    <p>{course?.instructor?.firstName} {course?.instructor?.lastName}</p>
+                <div className='flex flex-col gap-y-2'>
+                    <p className='text-xl font-semibold'>{course?.courseName}</p>
+                    {/* <p>{course?.instructor?.firstName} {course?.instructor?.lastName}</p> */}
 
-                    <div>
-                        <span>{avgReviewCount || 0}</span>
+                    <div className='flex gap-x-2 items-center'>
+                        <span className='text-yellow-50'>{avgReviewCount || 0}</span>
                         <RatingStars Review_Count = {avgReviewCount}/>
-                        <span>{course?.ratingAndReviews?.length} Ratings</span>
+                        <span className='text-richblack-200'>{course?.ratingAndReviews?.length} Ratings</span>
                     </div>
 
-                    <p>{course?.price}</p>
+                    <p className='text-xl font-semibold'>Rs. {course?.price}</p>
                 </div>
             </div>
         </Link>

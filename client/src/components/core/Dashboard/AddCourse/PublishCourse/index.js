@@ -54,9 +54,9 @@ const PublishCourse = () => {
         handleCoursePublish();
     }
   return (
-    <div>
-        <p>Publish Course</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className='text-richblack-200 flex w-[75%] mx-auto justify-center flex-col bg-richblack-800 p-6 rounded-md'>
+        <p className='text-xl text-richblack-200 font-semibold'>Publish Course</p>
+        <form onSubmit={handleSubmit(onSubmit)} className=''>
             <div>
                 <label>
                     <input
@@ -68,8 +68,8 @@ const PublishCourse = () => {
                 </label>
             </div>
 
-            <div>
-                <button disabled={loading} type='button' onClick={goBack}>
+            <div className='flex justify-between items-center mt-5'>
+                <button disabled={loading} type='button' onClick={goBack} className='px-6 py-2 bg-richblack-700 rounded-lg'>
                     Back
                 </button>
 

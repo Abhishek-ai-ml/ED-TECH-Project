@@ -4,6 +4,7 @@ import { getFullDetailsOfCourse } from '../services/operations/courseDetailsAPI'
 import { setCompletedLectures, setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../slices/viewCourseSlice';
 import VideoDetailsSidebar from '../components/core/ViewCourse/VideoDetailsSidebar';
 import CourseReviewModal from '../components/core/ViewCourse/CourseReviewModal';
+import { Outlet, useParams } from 'react-router-dom';
 
 const ViewCourse = () => {
     const [reviewModal, setReviewModal] = useState(false);
@@ -29,10 +30,10 @@ const ViewCourse = () => {
     }, [])
   return (
     <div>
-        <div>
-            <VideoDetailsSidebar setReviewModal={setReviewModal}/>
+        <div className='flex w-full gap-x-5 pt-10 relative'>
+            <div className='w-[20%] relative'><VideoDetailsSidebar setReviewModal={setReviewModal}/></div>
 
-            <div>
+            <div className='w-[70%] mx-auto pt-5'>
                 <Outlet/>
             </div>
         </div>

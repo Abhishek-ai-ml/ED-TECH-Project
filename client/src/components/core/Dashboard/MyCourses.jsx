@@ -22,9 +22,9 @@ const MyCourses = () => {
         fetchCourses();
     }, [])
   return (
-    <div>
-        <div>
-            <h1>My Courses</h1>
+    <div className='w-full flex flex-col items-center mx-auto mt-12'>
+        <div className='text-richblack-5 w-9/12 flex justify-between'>
+            <h1 className='text-3xl font-semibold'>My Courses</h1>
             <IconBtn
                 text="Add Course"
                 onclick={() => navigate("/dashboard/add-course")}

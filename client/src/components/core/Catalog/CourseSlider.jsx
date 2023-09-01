@@ -6,11 +6,22 @@ import 'swiper/css/pagination'
 import {FreeMode, Pagination} from 'swiper'
 import Course_Card from './Course_Card'
 const CourseSlider = ({Courses}) => {
+  console.log("INSIDE COURSE SLIDER---", Courses);
   return (
     <>
       {
         Courses?.length ? 
-        (<Swiper>
+        (<Swiper
+            slidesPerView={1}
+            spaceBetween={25}
+            loop={true}
+            modules={[FreeMode, Pagination]}
+            breakpoints={{
+              1024:{
+                slidesPerView: 3,
+              },
+            }} 
+            >
             {
                 Courses?.map((course, index) => (
                     <SwiperSlide key={index}>

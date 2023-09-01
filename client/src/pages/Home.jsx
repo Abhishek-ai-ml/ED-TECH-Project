@@ -10,13 +10,14 @@ import TimelineSection from '../components/core/HomePage/TimelineSection';
 import InstructorSection from '../components/core/HomePage/InstructorSection';
 import ExploreMore from '../components/core/HomePage/ExploreMore';
 import ReviewSlider from '../components/common/ReviewSlider';
+import Footer from '../components/common/Footer';
 
 
 const Home = () => {
   return (
     <div>
       {/* Section 1 */}
-      <div className='relative mx-auto w-11/12 flex flex-col items-center text-white justify-between max-w-maxContent'>
+      <div className='relative mx-auto w-11/12 flex flex-col items-center text-white justify-between max-w-maxContent pt-10'>
         <Link to={"/signup"}>
           <div className='group mt-16 p-1 mx-auto rounded-full font-bold bg-richblack-800 text-richblack-200 transition-all duration-200 hover:scale-95 w-fit'>
             <div className='flex items-center gap-2 rounded-full px-10 py-[5px] group-hover:bg-richblack-900'>
@@ -122,14 +123,14 @@ const Home = () => {
             </div>
         </div>
 
-        <div className='w-11/12 max-w-maxContent mx-auto flex flex-col gap-7 justify-center'>
-            <div className='flex gap-20 mt-[90px] '>
-              <div className='text-4xl font-semibold w-[50%]'>
+        <div className='w-11/12 max-w-maxContent mx-auto gap-7 justify-center'>
+            <div className='flex flex-wrap md:flex-wrap lg:flex-nowrap gap-10 lg:gap-20 lg:mt-[90px] '>
+              <div className='text-4xl font-semibold w-full md:w-full lg:w-[50%]'>
                 Get the Skills you need for a 
                 <HighlightText text={"Job that is in demand."}/>
               </div>
 
-              <div className='flex flex-col gap-12 w-[40%]'>
+              <div className='flex flex-col gap-12 w-full md:w-full lg:w-[40%]'>
                 <div className='text-[16px] font-inter text-richblack-700'>
                   The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                 </div>
@@ -153,10 +154,11 @@ const Home = () => {
         <InstructorSection/>
 
         <h2 className='text-center text-4xl font-semibold mt-32 text-white'>Review from other learners</h2>
-
+        <ReviewSlider/>
       </div>
 
       {/* Footer */}
+      <Footer/>
     </div>
   )
 }

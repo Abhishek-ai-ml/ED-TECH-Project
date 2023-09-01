@@ -29,7 +29,7 @@ function loadScript(src) {
 
 
 export async function buyCourse(token, courses, userDetails, navigate, dispatch) {
-    const toastId = toast.loading();
+    const toastId = toast.loading("Loading...");
     try {
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 

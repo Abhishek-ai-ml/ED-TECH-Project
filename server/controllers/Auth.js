@@ -242,7 +242,7 @@ exports.changePassword = async(req, res) => {
         const userDetails = await User.findById(req.user.id);
 
         //get old pass, new pass, and conform password from request body
-        const {oldPassword, newPassword, confirmNewPassword} = req.body;
+        const {oldPassword, newPassword} = req.body;
 
         //Validate old Password
         const isPasswordMatch = await bcrypt.compare(oldPassword, userDetails.password);
@@ -254,21 +254,13 @@ exports.changePassword = async(req, res) => {
             });
         }
 
-        //match new password and confirm new password
-        if(newPassword !== confirmNewPassword) {
-            return res.status(400).json({
-                success:false,
-                message:"The password and confirm password fields not matches",
-            });
-        }
-
         //Update password
         const encryptPassword = await bcrypt.hash(newPassword, 10);
         const updatedUserDetails = await User.findByIdAndUpdate(req.user.id, {password: encryptPassword}, {new:true});
 
         //Send notification mail
         try {
-            const emailResponse = await mailSender(updatedUserDetails.email, passwordUpdated(updatedUserDetails.email, `Password updated successfullly for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`));
+            const emailResponse = await mailSender(updatedUserDetails.email, "Password for your account has been updated", passwordUpdated(updatedUserDetails.email, `Password updated successfullly for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`));
             console.log("Email sent successfully: ", emailResponse.response);
         }catch(error) {
             console.log("Error Occurred while sending email:", error);

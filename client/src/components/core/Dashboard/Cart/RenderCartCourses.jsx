@@ -13,14 +13,14 @@ const RenderCartCourses = () => {
     <div>
         {
             cart.map( (course, index) => (
-                <div>
-                    <div>
-                        <img src={course?.thumbnail}/>
-                        <div>
-                            <p>{course?.courseName}</p>
-                            <p>{course?.category?.name}</p>
-                            <div>
-                                <span>4.8</span>
+                <div className='flex justify-between gap-x-3 border-b-[1px] border-b-richblack-600 p-5'>
+                    <div className='flex w-[80%]  gap-x-12'>
+                        <img src={course?.thumbnail} className='w-[40%] rounded-xl'/>
+                        <div className='flex flex-col'>
+                            <p className='text-xl text-richblack-5'>{course?.courseName}</p>
+                            <p className='text-base text-richblack-300'>{course?.category?.name}</p>
+                            <div className='flex items-center gap-x-3'>
+                                <span className='text-yellow-50'>4.8</span>
                                 <ReactStars
                                     count={5}
                                     size={20}
@@ -30,17 +30,17 @@ const RenderCartCourses = () => {
                                     fullIcon = {<GiNinjaStar/>}
                                 />
 
-                                <span>{course?.ratingAndReviews?.length} Ratings</span>
+                                <span className='text-base text-richblack-300'>{course?.ratingAndReviews?.length} Ratings</span>
                             </div>
                         </div>
                     </div>
 
-                    <div>
-                        <button onClick={() => dispatch(removeFromCart(course._id))}>
+                    <div className='flex flex-col gap-y-3'>
+                        <button onClick={() => dispatch(removeFromCart(course._id))} className='px-3 py-3 bg-richblack-700 border-[1px] border-richblack-500 rounded-lg flex items-center text-base gap-x-1 font-semibold text-pink-300'>
                             <RiDeleteBin6Line/>
                             <span>Remove</span>
                         </button>
-                        <p>Rs {course?.price}</p>
+                        <p className='text-3xl text-yellow-50 font-semibold'>₹ {course?.price}</p>
                     </div>
                 </div>
             ))

@@ -14,10 +14,11 @@ const Dashboard = () => {
         )
     }
   return (
-    <div className='flex w-[100%]'>
+    <div className='flex w-[100%] relative'>
+        {/* <div className='fixed top-12 w-full max-w-maxContent'><Sidebar/></div> */}
         <Sidebar/>
-        <div className='w-[80%]'>
-            <div>
+        <div className='flex justify-center mx-auto w-[85%] absolute left-[15%] top-12 bg-richblack-900 pb-5 z-10'>
+            <div className='flex justify-center mx-auto w-full z-30'>
                 <Outlet/>
             </div>
         </div>

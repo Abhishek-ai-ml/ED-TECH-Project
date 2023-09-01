@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/common/Navbar";
 import Signup from "./pages/Signup";
@@ -18,19 +18,31 @@ import Cart from "./components/core/Dashboard/Cart";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Settings from "./components/core/Dashboard/Settings";
 import Error from './pages/Error'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddCourse from "./components/core/Dashboard/AddCourse";
 import MyCourses from "./components/core/Dashboard/MyCourses";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import Catalog from "./pages/Catalog";
 import CourseDetails from "./pages/CourseDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import ViewCourse from './pages/ViewCourse'
+import VideoDetails from './components/core/ViewCourse/VideoDetails'
+import { useEffect } from "react";
+import { getUserDetails } from "./services/operations/profileAPI";
 
 function App() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {user} = useSelector((state) => state.profile);
 
-  const {user} = useSelector((state) => state.profile)
+  useEffect(() => {
+    if(localStorage.getItem("token")) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      dispatch(getUserDetails(token, navigate));
+    }
+  }, [])
   return (
-    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+    <div className="w-screen bg-richblack-900 flex flex-col font-inter min-h-screen">
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -41,8 +53,8 @@ function App() {
         <Route path="forgot-password" element={<OpenRoute><ForgotPassword/></OpenRoute>}/>
         <Route path="update-password/:id" element={<OpenRoute><UpdatePassword/></OpenRoute>}/>
         <Route path="verify-email" element={<OpenRoute><VerifyEmail/></OpenRoute>}/>
-        <Route path="about" element={<OpenRoute><About/></OpenRoute>}/>
-        <Route path="contact" element={<OpenRoute><Contact/></OpenRoute>}/>
+        <Route path="about" element={<About/>}/>
+        <Route path="contact" element={<Contact/>}/>
         <Route element={<PrivateRoute><Dashboard/></PrivateRoute>}>
           <Route path="dashboard/my-profile" element={<MyProfile/>}/>
           <Route path="dashboard/Settings" element={<Settings/>}/>
@@ -52,6 +64,7 @@ function App() {
               <>
                 <Route path="dashboard/cart" element={<Cart/>}/>
                 <Route path="dashboard/enrolled-courses" element={<EnrolledCourses/>}/>
+                <Route path="dashboard/settings" element={<Settings/>}/>
               </>
             )
           }
@@ -70,7 +83,7 @@ function App() {
 
         <Route element={<PrivateRoute><ViewCourse/></PrivateRoute>}>
           {
-            user?.ACCOUNT_TYPE.STUDENT && (
+            user?.accountType === ACCOUNT_TYPE.STUDENT && (
               <>
                 <Route path="view-course/:courseId/section/:sectionId/sub-Section/:subSectionId" element={<VideoDetails/>}/>
               </>

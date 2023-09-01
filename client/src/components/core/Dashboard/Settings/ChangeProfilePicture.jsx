@@ -23,7 +23,7 @@ export default function ChangeProfilePicture() {
     }
 
     const handleFileChange = (e) => {
-        const file = e.targe.files[0]
+        const file = e.target.files[0]
 
         if(file) {
             setImageFile(file)

@@ -1,16 +1,19 @@
+const { default: mongoose } = require('mongoose');
 const CourseProgress = require('../models/CourseProgress')
 const SubSection = require('../models/SubSection')
 
 
 exports.updateCourseProgress = async(req, res) => {
     
-    const {courseId, subSectionId} = req.body;
+    const {CourseId, subsectionId} = req.body;
+    console.log(CourseId);
     const userId = req.user.id;
+    const UserId = new mongoose.Types.ObjectId(userId);
+    console.log("USER ID -------", typeof(UserId))
     
     try {
         //check if subsection is valid or not
-        const subSection = await SubSection.findById(subSectionId);
-
+        const subSection = await SubSection.findById(subsectionId);
         if(!subSection) {
             return res.status(404).json({
                 success:false,
@@ -19,8 +22,8 @@ exports.updateCourseProgress = async(req, res) => {
         }
 
         //check for old entry
-        let courseProgress = await CourseProgress.findOne({courseID: courseId,userId:userId});
-
+        let courseProgress = await CourseProgress.findOne({courseID: CourseId,userId:userId});
+        console.log("Course progress-----", courseProgress);
         if(!courseProgress) {
             return res.status(404).json({
                 success:false,
@@ -29,7 +32,7 @@ exports.updateCourseProgress = async(req, res) => {
         }
         else {
             //check for re-completng video/subsection
-            if(courseProgress.completedVideos.includes(subSectionId)) {
+            if(courseProgress.completedVideos.includes(subsectionId)) {
                 return res.status(400).json({
                     success:false,
                     message:"Subsection already completed"
@@ -37,7 +40,7 @@ exports.updateCourseProgress = async(req, res) => {
             }
 
             //push into completed videos
-            courseProgress.completedVideos.push(subSectionId);
+            courseProgress.completedVideos.push(subsectionId);
         }
         await courseProgress.save();
         return res.status(200).json({

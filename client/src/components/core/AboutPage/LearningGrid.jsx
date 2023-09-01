@@ -58,7 +58,7 @@ const LearningGrid = () => {
 
                                 <p className='text-base font-medium text-richblack-300 lg:w-[560px] '>{card.description}</p>
 
-                                <div className='pt-10 flex place-item-start'>
+                                <div className='pb-5 pt-5 lg:pb-0 lg:pt-10 flex place-item-start'>
                                     <CTAButton active={true} linkto={card.BtnLink}>
                                         {card.BtnText}
                                     </CTAButton>
