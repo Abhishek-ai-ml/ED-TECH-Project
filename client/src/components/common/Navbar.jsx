@@ -4,7 +4,7 @@ import { BsChevronDown } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/Logo-Full-Light.png"
+import logo1 from "../../assets/Logo/second.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
@@ -49,7 +49,7 @@ function Navbar() {
       <div className="flex w-11/12 max-w-maxContent items-center justify-between bg-richblack-900 h-full">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <img src={logo1} alt="Logo" width={160} height={32} loading="lazy" className="pt-5"/>
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
