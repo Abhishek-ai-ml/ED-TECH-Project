@@ -45,11 +45,11 @@ const Instructor = () => {
             loading ? (<div className='flex justify-center items-center mx-auto spinner'></div>) :
              courses.length > 0 ? 
              (<div className='flex flex-col gap-y-3'>
-                <div>
-                    <div className='flex w-9/12 mx-auto gap-x-3 h-[450px]'>
+                <div className='lg:pb-0 pb-8'>
+                    <div className='lg:flex flex-wrap lg:flex-nowrap w-9/12 mx-auto gap-x-3 lg:h-[450px]'>
                         <InstructorChart courses = {instructorData}/>
 
-                        <div className='w-[25%] bg-richblack-800 p-8 flex flex-col gap-y-5 rounded-md'>
+                        <div className='w-full lg:w-[25%] bg-richblack-800 p-8 flex flex-col gap-y-5 lg:rounded-md'>
                             <p className='text-lg font-bold'>Statistics</p>
                             <div>
                                 <p className='text-lg text-richblack-200'>Total Courses</p>
@@ -77,10 +77,10 @@ const Instructor = () => {
                         </Link>
                     </div>
 
-                    <div className='flex gap-x-3'>
+                    <div className='lg:flex flex-wrap lg:flex-nowrap gap-x-3'>
                         {
                             courses.slice(0, 3).map((course) => (
-                                <div className='w-[33%] flex flex-col gap-y-2'>
+                                <div className='lg:w-[33%] w-full flex flex-col gap-y-2'>
                                     <img src={course.thumbnail} className='w-full object-cover rounded-lg h-[200px]'/>
 
                                     <div className='flex flex-col gap-y-2'>

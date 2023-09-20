@@ -37,11 +37,11 @@ export default function CoursesTable({courses, setCourses}) {
         <Table className="border-[1px] border-richblack-700">
             <Thead>
                 <Tr className="border-b-[1px] border-richblack-700">
-                    <Th className="w-[70%] flex justify-start p-2 pl-5">
+                    <Th className="lg:w-[70%] w-full flex justify-start p-2 pl-5">
                         COURSES
                     </Th>
 
-                    <Th className="w-[10%]">
+                    <Th className="lg:w-[10%] w-full">
                         Duration
                     </Th>
 
@@ -49,7 +49,7 @@ export default function CoursesTable({courses, setCourses}) {
                         Price
                     </Th>
 
-                    <Th className="w-[10%]">
+                    <Th className="lg:w-[10%] w-full">
                         Actions
                     </Th>
                 </Tr>
@@ -69,7 +69,7 @@ export default function CoursesTable({courses, setCourses}) {
                         courses.map((course) => (
                             <Tr key={course._id} className="">
                                 <Td className="flex p-7 pl-5 gap-x-5">
-                                    <img src={course?.thumbnail} className='w-[220px] h-[148px] rounded-lg object-cover'/>
+                                    <img src={course?.thumbnail} className='lg:w-[220px] w-full h-[148px] rounded-lg object-cover'/>
                                     <div className='flex flex-col gap-y-4'>
                                         <p className='text-lg font-semibold text-richblack-5'>{course?.courseName}</p>
                                         <p className='text-sm text-richblack-300'>{course?.courseDescription}</p>
@@ -92,18 +92,18 @@ export default function CoursesTable({courses, setCourses}) {
                                     </div>
                                 </Td>
 
-                                <Td className="text-richblack-300 text-sm font-medium w-[10%] text-center">
+                                <Td className="text-richblack-300 text-sm font-medium lg:w-[10%] w-full text-center">
                                     2hr 30min
                                 </Td>
 
-                                <Td className="w-[10%] text-richblack-300 text-sm font-medium text-center">
+                                <Td className="lg:w-[10%] w-full text-richblack-300 text-sm font-medium text-center">
                                     <div className='flex items-center justify-center text-sm'>
                                         <TbCurrencyRupee className='text-base'/>
                                         <span>{course.price}</span>
                                     </div>
                                 </Td>
 
-                                <Td className="w-[10%] text-richblack-300 text-sm font-medium text-center">
+                                <Td className="lg:w-[10%] w-full text-richblack-300 text-sm font-medium text-center">
                                     <button disabled={loading}
                                         onClick={() => navigate(`/dashboard/edit-course/${course._id}`)}
                                         className='text-xl hover:text-caribbeangreen-100'

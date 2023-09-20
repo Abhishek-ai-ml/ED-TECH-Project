@@ -293,12 +293,12 @@ export default function CourseInformationForm() {
         getValues={getValues}
       />
       {/* Next Button */}
-      <div className="flex justify-end gap-x-2">
+      <div className="lg:flex flex-wrap lg:flex-nowrap justify-end gap-x-2">
         {editCourse && (
           <button
             onClick={() => dispatch(setStep(2))}
             disabled={loading}
-            className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
+            className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900 mb-5 lg:mb-0`}
           >
             Continue Wihout Saving
           </button>

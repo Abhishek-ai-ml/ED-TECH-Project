@@ -19,6 +19,7 @@ function Navbar() {
 
   const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     ;(async () => {
@@ -141,9 +142,56 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-        <button className="mr-4 md:hidden">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+        <button className="mr-4 md:hidden relative transition-all duration-400 ease-in-out" onClick={() => setShow(!show)}>
+          <AiOutlineMenu fontSize={24} fill="#AFB2BF" className="opacity-100"/>
+          { show && <div className=" absolute -right-5 top-8 flex flex-col text-richblack-300 bg-richblack-900 border-richblack-700 border-[1px] rounded-xl p-5 gap-y-6">
+            
+              {
+                token == null && <Link to="/signup">
+                    Sign up 
+                </Link>
+              }
+
+              {
+                token === null && (
+                <Link to="/login">
+                  Log In
+                </Link>
+              )}
+
+              {token !== null && <Link to="/dashboard/my-profile">Dashboard</Link>}
+            
+              <div className="">
+                  <span className="font-semibold pb-3">Courses</span>
+                  {loading ? (
+                          <p className="spinner"></p>
+                        ) : subLinks.length ? (
+                          <>
+                            {subLinks
+                              ?.filter(
+                                (subLink) => subLink?.courses?.length > 0
+                              )
+                              ?.map((subLink, i) => (
+                                <Link
+                                  to={`/catalog/${subLink.name
+                                    .split(" ")
+                                    .join("-")
+                                    .toLowerCase()}`}
+                                  className="rounded-lg bg-transparent py-2 pl-4 hover:bg-richblack-50"
+                                  key={i}
+                                >
+                                  <p>{subLink.name}</p>
+                                </Link>
+                              ))}
+                          </>
+                        ) : (
+                          <p className="text-center text-richblack-900 text-xl">No Courses Found</p>
+                        )}
+              </div>
+          </div>}
+          
         </button>
+
       </div>
     </div>
   )

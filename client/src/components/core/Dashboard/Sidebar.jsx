@@ -28,7 +28,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="fixed bottom-0 flex h-[calc(100vh-3.5rem)] min-w-[240px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
+      <div className="fixed bottom-0 flex h-[calc(100vh-3.5rem)] w-fit flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
         <div className="flex flex-col">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null

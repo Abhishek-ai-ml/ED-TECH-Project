@@ -130,8 +130,8 @@ const CourseDetails = () => {
         
         {/* Section 1 */}
         <section className='w-full pt-24 bg-richblack-800'>
-            <div className=' flex justify-between max-w-maxContent w-10/12 mx-auto pb-28 relative'>
-                <div className='flex flex-col py-5 gap-4 my-5 justify-center pb-10 w-[50%]'>
+            <div className='lg:flex flex-wrap lg:flex-nowrap justify-between max-w-maxContent w-10/12 mx-auto pb-28 relative'>
+                <div className='flex flex-col py-5 gap-4 my-5 justify-center pb-10 lg:w-[50%] w-full'>
                     <h1 className='text-richblack-5 text-4xl font-bold'>{courseName}</h1>
                     
                     <div className='text-richblack-200 text-lg'>{courseDescription}</div>
@@ -147,7 +147,7 @@ const CourseDetails = () => {
                     <div className='flex items-center gap-x-3 text-lg'>
                         <div className='flex gap-x-2 items-center'>
                             <BiInfoCircle/>
-                            <div className='flex gap-x-2'>
+                            <div className='lg:flex flex-wrap lg:flex-nowrap gap-x-2'>
                                 <p>Created at</p>
                                 <p>{createdAt.split(':')[0].substr(0, 10)} |</p>
                                 <p>{createdAt.split('T')[1].substr(0, 5)}</p>
@@ -161,7 +161,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
 
-                <div className='w-[35%] p-6 bg-richblack-700 rounded-lg flex flex-col gap-y-4 absolute right-0'>
+                <div className='lg:w-[35%] w-full p-6 bg-richblack-700 rounded-lg flex flex-col gap-y-4 absolute lg:right-0 left-0'>
                     <div className='w-full'>
                         <img src={thumbnail} className='rounded-lg'/>
                     </div>
@@ -192,8 +192,8 @@ const CourseDetails = () => {
         </section>
 
         {/* Section 2 */}
-        <section className='w-10/12 max-w-maxContent mx-auto pt-5'>
-            <div className='w-[60%] p-6 flex flex-col gap-y-3 border-[1px] border-richblack-700'>
+        <section className='w-10/12 max-w-maxContent mx-auto lg:pt-5 pt-[450px]'>
+            <div className='lg:w-[60%] w-full p-6 flex flex-col gap-y-3 border-[1px] border-richblack-700'>
                 <h2 className='text-3xl font-semibold'>What you'll learn</h2>
                 <p className='text-base'>{whatYouWillLearn}</p>
             </div>
@@ -203,8 +203,8 @@ const CourseDetails = () => {
         <section className='w-10/12 max-w-maxContent mx-auto pt-12 flex flex-col gap-y-5'>
             <h2 className='text-3xl font-semibold'>Course Content</h2>
 
-            <div className='flex w-[60%] justify-between'>
-                <div className='flex gap-x-3'>
+            <div className='flex lg:w-[60%] w-full justify-between'>
+                <div className='lg:flex flex-wrap lg:flex-nowrap gap-x-3'>
                     <p>{courseContent.length} section(s)</p>
                     <p>{totalNoOfLectures} lecture(s)</p>
                 </div>
@@ -216,7 +216,7 @@ const CourseDetails = () => {
                 </div>
             </div>
 
-            <div className='w-[60%]'>
+            <div className='lg:w-[60%] w-full'>
                 {
                     courseContent?.map((course, index) => (
                         <CourseAccordianBar

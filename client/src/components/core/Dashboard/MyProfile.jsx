@@ -13,10 +13,10 @@ const MyProfile = () => {
         <h1 className='text-3xl font-inter font-semibold'>My Profile</h1>
 
         {/* Section 1 */}
-        <div className='flex justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg items-center border-[1px] border-richblack-700'>
-            <div className='flex gap-x-3 items-center'>
+        <div className='flex-wrap lg:flex-nowrap lg:flex justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg items-center border-[1px] border-richblack-700'>
+            <div className='flex-wrap lg:flex-nowrap lg:flex lg:gap-x-3 pb-3 lg:pb-0 items-center'>
                 <img src={user?.image} alt={`profile-${user?.firstName}`}  className='rounded-full w-[78px] h-[78px] object-cover'/>
-                <div className='flex flex-col'>
+                <div className='flex flex-col lg:pt-0 pt-3'>
                     <p className='text-richblack-5 font-semibold text-lg'>{user?.firstName + " " + user?.lastName}</p>
                     <p className='text-richblack-300 text-sm font-normal'>{user?.email}</p>
                 </div>
@@ -32,8 +32,8 @@ const MyProfile = () => {
 
 
         {/* Section 2 */}
-        <div className='flex justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg items-center border-[1px] border-richblack-700'>
-            <div className='flex flex-col gap-y-12'>
+        <div className='lg:flex flex-wrap lg:flex-nowrap justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg items-center border-[1px] border-richblack-700'>
+            <div className='flex-wrap lg:flex-nowrap flex flex-col gap-y-5 lg:gap-y-12 lg:pb-0 pb-5'>
                 <h2 className='text-lg font-semibold text-richblack-5'>About</h2>
 
                 <div>
@@ -56,11 +56,11 @@ const MyProfile = () => {
         </div>
 
         {/* Section 3 */}
-        <div className='flex justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg  border-[1px] border-richblack-700'>
-            <div className='flex flex-col gap-y-12 justify-start w-[60%]'>
+        <div className='lg:flex flex-wrap lg:flex-nowrap justify-between w-full mx-auto bg-richblack-800 p-8 rounded-lg  border-[1px] border-richblack-700'>
+            <div className='flex flex-col gap-y-12 justify-start w-[60%] pb-5 lg:pb-0'>
                <h2 className='text-lg font-semibold text-richblack-5'>Personal Details</h2> 
 
-               <div className='flex justify-between'>
+               <div className=' flex-wrap lg:flex-nowrap flex justify-between'>
                     <div className='flex flex-col gap-y-5'>
                         <div>
                             <p className='text-sm text-richblack-600 mb-2'>First Name</p>

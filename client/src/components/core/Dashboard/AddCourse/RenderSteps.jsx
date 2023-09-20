@@ -32,12 +32,12 @@ const RenderSteps = () => {
                 steps.map( (item) => (
                     <>
                         <div className='w-full flex justify-center relative'>
-                            <div className={`${step === item.id ? "bg-yellow-900 border-[1px] border-yellow-50 text-yellow-50" : "border-richblack-700 bg-richblack-800 text-richblack-300"} ${step > item.id ? "bg-yellow-900 text-yellow-50 border-[1px] border-yellow-100" : ""} w-8 h-8 rounded-full flex justify-center items-center`}>
+                            <div className={`${step === item.id ? "bg-yellow-900 border-[1px] border-yellow-50 text-yellow-50" : "border-richblack-700 bg-richblack-800 text-richblack-300"} ${step > item.id ? "bg-yellow-900 text-yellow-50 border-[1px] border-yellow-100" : ""} lg:w-8 lg:h-8 w-16 h-16 rounded-full flex justify-center items-center`}>
                                 {
                                     step > item.id ? (<FaCheck/>) : (item.id)
                                 }
                             </div>
-                            <div className={`${item.id === 3 ? "" : "absolute bottom-[50%] -right-[74px] z-50 border-b-[1px] border-dashed border-richblack-5 w-[148px] h-6"} ${item.id < step ? "border-yellow-100" : ""}`}></div>
+                            <div className={`${item.id === 3 ? "" : "lg:absolute lg:bottom-[50%] lg:-right-[74px] z-50 lg:border-b-[1px] lg:border-dashed lg:border-richblack-5 lg:w-[148px] lg:h-6"} ${item.id < step ? "border-yellow-100" : ""}`}></div>
                         </div>
                     </>
                 ))
@@ -49,7 +49,7 @@ const RenderSteps = () => {
                 steps.map( (item) => (
                     <>
                         <div className='w-full'>
-                            <p className='text-richblack-5 text-xs font-normal flex justify-center'>{item.title}</p>
+                            <p className='lg:text-richblack-5 lg:text-xs lg:font-normal lg:flex lg:justify-center'>{item.title}</p>
                         </div>
                     </>
                 ))

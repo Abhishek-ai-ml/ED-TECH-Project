@@ -93,12 +93,12 @@ export default function UpdatePassword() {
             </div>
           </div>
         </div>
-        <div className="flex justify-end w-full gap-x-5 py-3 px-24">
+        <div className="lg:flex flex-wrap lg:flex-nowrap justify-end w-full gap-x-5 p-8 py-3 lg:px-24">
           <button
             onClick={() => {
               navigate("/dashboard/my-profile")
             }}
-            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50 mb-5 lg:mb-0"
           >
             Cancel
           </button>
